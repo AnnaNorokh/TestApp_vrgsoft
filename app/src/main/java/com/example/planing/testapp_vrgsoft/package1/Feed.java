@@ -10,8 +10,11 @@ import org.simpleframework.xml.Root;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 @Root(name = "feed", strict = false)
 public class Feed implements Serializable {
+
 
     @Element(name = "id")
     private String id;
@@ -19,14 +22,11 @@ public class Feed implements Serializable {
     @Element(required = false, name = "author")
     private String author;
 
-    @Element(name = "date")
-    private String date;
+    @Element(name = "updated")
+    private String updated;
 
-    @Element(name = "pic")
-    private String pic;
-
-    @Element(name = "comments")
-    private String comments;
+    @Element(name = "content")
+    private String content;
 
     @Element(name = "title")
     private String title;
@@ -53,27 +53,20 @@ public class Feed implements Serializable {
     }
 
     public String getDate() {
-        return date;
+        return updated;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(String updated) {
+        this.updated = updated;
     }
 
-    public String getPic() {
-        return pic;
-    }
-
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
 
     public String getComments() {
-        return comments;
+        return content;
     }
 
     public void setComments(String comments) {
-        this.comments = comments;
+        this.content = comments;
     }
 
     public String getTitle() {
@@ -90,5 +83,10 @@ public class Feed implements Serializable {
 
     public void setEntrys(List<Entry> entrys) {
         this.entrys = entrys;
+    }
+
+    @Override
+    public String toString() {
+        return "Feed: \n [Entrys : " +entrys+ "]";
     }
 }

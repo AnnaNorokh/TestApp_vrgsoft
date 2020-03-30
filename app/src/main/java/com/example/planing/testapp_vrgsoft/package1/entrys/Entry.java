@@ -17,18 +17,18 @@ public class Entry implements Serializable {
     @Element(name = "title")
     private String title;
 
-    @Element(name = "date")
-    private String date;
+    @Element(name = "updated")
+    private String updated;
 
     public Entry() {
 
     }
 
-    public Entry(String content, String author, String title, String date) {
+    public Entry(String content, String author, String title, String updated) {
         this.content = content;
         this.author = author;
         this.title = title;
-        this.date = date;
+        this.updated = updated;
     }
 
     public String getContent() {
@@ -56,10 +56,21 @@ public class Entry implements Serializable {
     }
 
     public String getDate() {
-        return date;
+        return updated;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(String updated) {
+        this.updated =updated;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Entry{" +
+                "content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", title='" + title + '\'' +
+                ", updated='" + updated + '\'' +
+                '}';
     }
 }
